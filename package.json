@@ -1,0 +1,8 @@
+{
+  "name": "github-users",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/lucasgmagalhaes/github-users.git",
+  "author": "Lucas Gomes <lucasgsm88@gmail.com>",
+  "license": "MIT"
+}
