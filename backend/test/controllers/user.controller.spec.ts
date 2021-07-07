@@ -1,9 +1,9 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import controllers from '../../src/controllers';
-import services from '../../src/services';
-import { UsersController } from '../../src/controllers/users.controller';
+import { Test, TestingModule } from "@nestjs/testing";
+import controllers from "../../src/controllers";
+import services from "../../src/services";
+import { UsersController } from "../../src/controllers/users.controller";
 
-describe('userController', () => {
+describe("userController", () => {
   let userController: UsersController;
 
   beforeEach(async () => {
@@ -15,7 +15,7 @@ describe('userController', () => {
     userController = app.get<UsersController>(UsersController);
   });
 
-  describe('users', () => {
+  describe("users", () => {
     it('should fetch users"', async () => {
       const users = await userController.fetchUsers();
       expect(users).toBeTruthy();
@@ -26,11 +26,16 @@ describe('userController', () => {
 
     it('should fetch user detail"', async () => {
       const user = await userController.fetchUserDetail(
-        'lucasgmagalhaes',
-        null,
+        "lucasgmagalhaes",
+        null
       );
-      console.log(JSON.stringify(user));
       expect(user).toBeTruthy();
+    });
+
+    it('should fetch user repos"', async () => {
+      const repos = await userController.fetchUserRepos("lucasgmagalhaes");
+      console.log(JSON.stringify(repos[0]));
+      expect(repos).toBeTruthy();
     });
   });
 });

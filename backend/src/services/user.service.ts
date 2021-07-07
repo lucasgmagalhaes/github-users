@@ -1,13 +1,12 @@
-import { Injectable } from '@nestjs/common';
-import { GitHubService } from './octokit.service';
-import { UserDetailDto, UserResumeDto } from '../../../shared/models';
-
+import { Injectable } from "@nestjs/common";
+import { GitHubService } from "./octokit.service";
+import { UserDetailDto, UserRepositoryDto, UserResumeDto } from "../models";
 @Injectable()
 export class UserService {
   constructor(private readonly githubService: GitHubService) {}
 
   async fetchUsers(since?: number) {
-    const response = await this.githubService.kit.request('GET /users', {
+    const response = await this.githubService.kit.request("GET /users", {
       since,
       headers: this.githubService.defaultHeaders,
     });
@@ -23,23 +22,23 @@ export class UserService {
 
   async fetchUser(username: string) {
     const response = await this.githubService.kit.request(
-      'GET /users/{username}',
+      "GET /users/{username}",
       {
         username,
         headers: this.githubService.defaultHeaders,
-      },
+      }
     );
     return response.data as UserDetailDto;
   }
 
   async fetchUserRepositories(username: string) {
     const response = await this.githubService.kit.request(
-      'GET /users/{username}/repos',
+      "GET /users/{username}/repos",
       {
         username,
         headers: this.githubService.defaultHeaders,
-      },
+      }
     );
-    return response.data;
+    return response.data as UserRepositoryDto[];
   }
 }

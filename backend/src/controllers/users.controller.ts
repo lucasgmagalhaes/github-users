@@ -1,8 +1,11 @@
-import { Controller, Get, HttpStatus, Param, Res } from '@nestjs/common';
-import { UserService } from '../services/user.service';
-import { Response } from 'express';
+import {
+  Controller,
+  Get,
+  Param,
+} from "@nestjs/common";
+import { UserService } from "../services/user.service";
 
-@Controller('users')
+@Controller("api/users")
 export class UsersController {
   constructor(private readonly userService: UserService) {}
 
@@ -11,21 +14,13 @@ export class UsersController {
     return await this.userService.fetchUsers(since);
   }
 
-  @Get('/:username/detail')
-  async fetchUserDetail(
-    @Param('username') username: string,
-    @Res() res: Response,
-  ) {
-    const user = await this.userService.fetchUser(username);
-    if (!user) {
-      res.status(HttpStatus.NOT_FOUND);
-      return;
-    }
-    return user;
+  @Get("/:username/detail")
+  async fetchUserDetail(@Param("username") username: string) {
+    return await this.userService.fetchUser(username);
   }
 
-  @Get('/:username/repos')
-  async fetchUserRepos(@Param('username') username: string) {
-    await this.userService.fetchUserRepositories(username);
+  @Get("/:username/repos")
+  async fetchUserRepos(@Param("username") username: string) {
+    return await this.userService.fetchUserRepositories(username);
   }
 }

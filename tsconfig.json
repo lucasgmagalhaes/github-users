@@ -1,3 +1,5 @@
 {
-  "include": ["shared/*"]
+  "compilerOptions": {
+    "types": ["./models.d.ts"]
+  }
 }
