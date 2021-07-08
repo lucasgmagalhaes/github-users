@@ -13,7 +13,7 @@ export class GitHubService {
 
   constructor() {
     this.kit = new Octokit({
-      auth: process.env.GITHUB_TOKEN,
+      auth: process.env.TOKEN_GITHUB,
     });
   }
 }

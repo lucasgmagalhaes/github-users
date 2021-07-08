@@ -7,8 +7,8 @@ import { AppModule } from "./app.module";
 require("dotenv").config();
 
 async function bootstrap() {
-  if (!process.env.GITHUB_TOKEN) {
-    throw new Error("GITHUB_TOKEN not provided");
+  if (!process.env.TOKEN_GITHUB) {
+    throw new Error("TOKEN_GITHUB not provided");
   }
 
   const app = await NestFactory.create<NestFastifyApplication>(
