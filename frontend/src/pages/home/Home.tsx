@@ -15,25 +15,27 @@ export function Home() {
   const history = useHistory();
 
   const fetchUsersIfAlmostInBottom = useCallback(async (e: Event) => {
+    console.log(isFetchingFromScroll.current);
     if (isFetchingFromScroll.current) {
       return;
     }
     const target = e.target as Document;
     const element = target.scrollingElement;
     if (element) {
-      const limitForFetch = (element.scrollHeight * 80) / 100;
+      const limitForFetch = (element.scrollHeight * 70) / 100;
       const shouldFetch = element.scrollTop >= limitForFetch;
       if (shouldFetch) {
         isFetchingFromScroll.current = true;
         if (lastId.current > 0) {
-          console.log(lastId);
           const moreUsers = await api.users.fetch(lastId.current);
           isFetchingFromScroll.current = false;
           setUsers((u) => [...u, ...moreUsers]);
         }
       }
     }
-  }, []);
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [users]);
 
   useEffect(() => {
     if (users.length > 1) {
@@ -50,23 +52,29 @@ export function Home() {
 
     return () => {
       window.removeEventListener("scroll", fetchUsersIfAlmostInBottom);
-      setUsers([]);
     };
-  }, [fetchUsersIfAlmostInBottom]);
+  }, []);
+
+  function getDistinctUsers() {
+    return users
+      .map((item) => item.id)
+      .filter((value, index, self) => self.indexOf(value) === index)
+      .map((id) => users.find((u) => u.id === id)!);
+  }
 
   return (
     <div className="container">
       <span className="title">Github Users</span>
       {isLoading && <Loading />}
       <div className="itens-container">
-        {users.map((user, index) => (
+        {getDistinctUsers().map((user, index) => (
           <UserResume
-            displayDelay={100 + 120 * index}
-            key={user.id}
-            id={user.id}
-            imgUrl={user.imgUrl}
-            login={user.login}
-            onPress={() => history.push("/user/" + user.login)}
+            key={user?.id}
+            displayDelay={index < 50 ? 100 + 120 * index : undefined}
+            id={user?.id}
+            imgUrl={user?.imgUrl}
+            login={user?.login}
+            onPress={() => history.push("/user/" + user?.login)}
           />
         ))}
       </div>

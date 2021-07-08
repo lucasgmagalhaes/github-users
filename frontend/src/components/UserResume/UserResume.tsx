@@ -6,9 +6,13 @@ export function UserResume(props: UserResumeProp) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
+    if (props.displayDelay) {
+      setTimeout(() => {
+        setShow(true);
+      }, props.displayDelay);
+    } else {
       setShow(true);
-    }, props.displayDelay);
+    }
   }, [props.displayDelay]);
 
   return show ? (
