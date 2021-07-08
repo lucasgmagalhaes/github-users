@@ -7,17 +7,21 @@ export class UserApi {
   }
 
   async fetch(since?: number) {
-    const response = await axios.get<UserResumeDto[]>("users");
+    const response = await axios.get<UserResumeDto[]>("users", {
+      headers: {
+        since,
+      },
+    });
     return response.data;
   }
 
   async fetchDetail(userName: string) {
-    const response = await axios.get<UserDetailDto>(`${userName}/detail`);
+    const response = await axios.get<UserDetailDto>(`users/${userName}/detail`);
     return response.data;
   }
 
   async fetchRepositories(userName: string) {
-    const response = await axios.get<UserRepositoryDto[]>(`${userName}/repos`);
+    const response = await axios.get<UserRepositoryDto[]>(`users/${userName}/repos`);
     return response.data;
   }
 }
