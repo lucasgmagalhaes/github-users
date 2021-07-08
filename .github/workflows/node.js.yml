@@ -24,7 +24,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - working-directory: './backend'
+    - working-directory: ./backend
       run: |
         npm install
         npm run build
@@ -43,7 +43,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - working-directory: './backend'
+    - working-directory: ./backend
       run: |
         npm install
         npm run lint
@@ -62,7 +62,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - working-directory: './backend'
+    - working-directory: ./backend
       run: |
         npm install
         npm run test
@@ -81,7 +81,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - working-directory: './backend'
+    - working-directory: ./backend
       run: |
         npm install
         npm run test:e2e
