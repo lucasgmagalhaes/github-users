@@ -1,1 +1,1 @@
-web: node dist/main
+worker: node dist/main
