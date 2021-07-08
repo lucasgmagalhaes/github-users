@@ -3,7 +3,7 @@ import { UserDetailDto, UserRepositoryDto, UserResumeDto } from "../models";
 
 export class UserApi {
   constructor() {
-    axios.defaults.baseURL = "http://localhost:3100/api";
+    axios.defaults.baseURL = "https://backend-github-users.herokuapp.com/api";
   }
 
   async fetch(since?: number) {
