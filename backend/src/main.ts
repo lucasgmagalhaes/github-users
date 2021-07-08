@@ -17,6 +17,6 @@ async function bootstrap() {
   );
   app.enableCors();
   console.log(process.env.TOKEN_GITHUB, process.env.PORT);
-  await app.listen(process.env.PORT || 3000);
+  await app.listen(process.env.PORT || 3000, "0.0.0.0");
 }
 bootstrap();
