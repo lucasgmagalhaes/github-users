@@ -1,6 +1,7 @@
 export interface UserResumeDto {
   id: number;
   login: string;
+  imgUrl: string;
 }
 
 export interface UserDetailDto {

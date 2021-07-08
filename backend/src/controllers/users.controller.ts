@@ -1,8 +1,4 @@
-import {
-  Controller,
-  Get,
-  Param,
-} from "@nestjs/common";
+import { Controller, Get, Param, Query } from "@nestjs/common";
 import { UserService } from "../services/user.service";
 
 @Controller("api/users")
@@ -10,8 +6,8 @@ export class UsersController {
   constructor(private readonly userService: UserService) {}
 
   @Get()
-  async fetchUsers(@Param() since?: number) {
-    return await this.userService.fetchUsers(since);
+  async fetchUsers(@Query() query?: { since: number }) {
+    return await this.userService.fetchUsers(query?.since);
   }
 
   @Get("/:username/detail")

@@ -14,6 +14,7 @@ export class UserService {
       return response.data.map<UserResumeDto>((user) => ({
         id: user.id,
         login: user.login,
+        imgUrl: user.avatar_url,
       }));
     }
 

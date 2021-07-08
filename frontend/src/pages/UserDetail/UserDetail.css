@@ -1,0 +1,7 @@
+.detail-container {
+  display: flex;
+  height: 500px;
+  width: 80%;
+  border: 1px solid #30363d;
+  background-color: #0d1117;
+}

@@ -1,0 +1,32 @@
+.loading-container {
+  position: absolute;
+  top: 40%;
+}
+
+.loading-img {
+  border-radius: 50%;
+  opacity: 0.9;
+  height: 130px;
+}
+
+.fade-out {
+  -webkit-animation: fade-out 1s ease-out both;
+  animation: fade-out 1s ease-out both;
+}
+
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
