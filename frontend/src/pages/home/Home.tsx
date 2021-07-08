@@ -53,6 +53,7 @@ export function Home() {
     return () => {
       window.removeEventListener("scroll", fetchUsersIfAlmostInBottom);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function getDistinctUsers() {
