@@ -26,12 +26,12 @@
     "@nestjs/platform-express": "^7.6.15",
     "@nestjs/platform-fastify": "^7.6.18",
     "@octokit/core": "^3.5.1",
-    "dot-env": "^0.0.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.6"
   },
   "devDependencies": {
+    "dot-env": "^0.0.1",
     "@nestjs/cli": "^7.6.0",
     "@nestjs/schematics": "^7.3.0",
     "@nestjs/testing": "^7.6.15",
