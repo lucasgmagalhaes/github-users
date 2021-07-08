@@ -16,10 +16,10 @@ describe('AppController (e2e)', () => {
   });
 
   it('/users (GET)', () => {
-    return request(app.getHttpServer()).get('/users').expect(200);
+    return request(app.getHttpServer()).get('/api/users').expect(200);
   });
 
   it('/users?username=lucasgmagalhaes (GET)', () => {
-    return request(app.getHttpServer()).get('/users/lucasgmagalhaes/detail').expect(200)
+    return request(app.getHttpServer()).get('/api/users/lucasgmagalhaes/detail').expect(200)
   });
 });

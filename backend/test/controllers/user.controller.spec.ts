@@ -25,10 +25,7 @@ describe("userController", () => {
     });
 
     it('should fetch user detail"', async () => {
-      const user = await userController.fetchUserDetail(
-        "lucasgmagalhaes",
-        null
-      );
+      const user = await userController.fetchUserDetail("lucasgmagalhaes");
       expect(user).toBeTruthy();
     });
 
