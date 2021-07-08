@@ -16,7 +16,6 @@ async function bootstrap() {
     new FastifyAdapter()
   );
   app.enableCors();
-  console.log(process.env.TOKEN_GITHUB, process.env.PORT);
   await app.listen(process.env.PORT || 3000, "0.0.0.0");
 }
 bootstrap();
