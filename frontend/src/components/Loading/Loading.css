@@ -1,6 +1,8 @@
 .loading-container {
   position: absolute;
   top: 40%;
+  left: 50%;
+  z-index: 10;
 }
 
 .loading-img {
@@ -10,8 +12,8 @@
 }
 
 .fade-out {
-  -webkit-animation: fade-out 1s ease-out both;
-  animation: fade-out 1s ease-out both;
+  -webkit-transition: fade-out 1s ease-out both;
+  transition: fade-out 1s ease-out both;
 }
 
 @-webkit-keyframes fade-out {

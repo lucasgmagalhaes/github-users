@@ -1,0 +1,14 @@
+.repo {
+  text-align: left;
+}
+
+.repo-name {
+  color: #6bbcf3 !important;
+  margin-bottom: 7px;
+}
+
+.description {
+  color: #a7afb9 !important;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

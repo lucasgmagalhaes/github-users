@@ -4,3 +4,44 @@ body {
   margin: 0;
   background-color: #010409;
 }
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.column-fixed {
+  flex-direction: column !important;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.color-white {
+  color: white;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 35px;
+  justify-content: center;
+}
+
+.m-20 {
+  margin: 20px;
+}
+
+.mb-42 {
+  margin-bottom: 42px;
+}
